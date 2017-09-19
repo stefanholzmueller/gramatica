@@ -30,10 +30,16 @@ class PresentSpec extends FunSpec {
     testAllPersons(TOMAR, "tomo", "tomas", "toma", "tomamos", "tomáis", "toman")
   }
 
-  /*
-    describe("Regular -er verbs") {
-      testAllPersons("como", "comes", "come", "comemos", "coméis", "comen")
-    }
-  */
+  describe("Regular -er verbs") {
+    testAllPersons(COMER, "como", "comes", "come", "comemos", "coméis", "comen")
+  }
+
+  describe("acoger g->j in first person singular") {
+    testAllPersons(ACOGER, "acojo", "acoges", "acoge", "acogemos", "acogéis", "acogen")
+  }
+
+  describe("vencer c->z in first person singular") {
+    testAllPersons(VENCER, "venzo", "vences", "vence", "vencemos", "vencéis", "vencen")
+  }
 
 }
