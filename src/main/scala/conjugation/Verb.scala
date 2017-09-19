@@ -5,38 +5,21 @@ trait Verb {
   def toPresent: Persons
 }
 
-class RegularArVerb(val stem: String) extends Verb {
-
-  def toInfinitive: String = stem + "ar"
-
-  def toPresent: Persons = {
-    Persons(stem + "o", stem + "as", stem + "a", stem + "amos", stem + "áis", stem + "an")
-  }
-
+trait IrregularFirstPersonSingular {
+  def toPresent1S(stem: String): String = stem.replaceFirst("g$", "j").replaceFirst("gu$", "g").replaceFirst("c$", "z") + "o"
 }
 
-class RegularErVerb(val stem: String) extends Verb {
-
-  def toInfinitive: String = stem + "er"
-
-  def toPresent: Persons = {
-    Persons(stem + "o", stem + "es", stem + "e", stem + "emos", stem + "éis", stem + "en")
-  }
-
+class ArVerb(val stem: String) extends Verb with IrregularFirstPersonSingular {
+  def toInfinitive = stem + "ar"
+  def toPresent = Persons(toPresent1S(stem), stem + "as", stem + "a", stem + "amos", stem + "áis", stem + "an")
 }
 
-class IrregularFirstPersonSingularErVerb(override val stem: String) extends RegularErVerb(stem) {
-
-  override def toPresent: Persons = {
-    val regularPersons = super.toPresent
-    val newLastLetter = stem.last match {
-      case 'c' => 'z'
-      case 'g' => 'j'
-      case x => x
-    }
-    val firstPersonSingular = stem.init + newLastLetter + "o"
-    regularPersons.copy(s1 = firstPersonSingular)
-  }
-
+class ErVerb(val stem: String) extends Verb with IrregularFirstPersonSingular {
+  def toInfinitive = stem + "er"
+  def toPresent = Persons(toPresent1S(stem), stem + "es", stem + "e", stem + "emos", stem + "éis", stem + "en")
 }
 
+class IrVerb(val stem: String) extends Verb with IrregularFirstPersonSingular {
+  def toInfinitive = stem + "ir"
+  def toPresent = Persons(toPresent1S(stem), stem + "es", stem + "e", stem + "imos", stem + "ís", stem + "en")
+}

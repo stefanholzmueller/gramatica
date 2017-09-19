@@ -1,9 +1,12 @@
 package conjugation
 
 object Vocabulary {
-  val FUMAR = new RegularArVerb("fum")
-  val TOMAR = new RegularArVerb("tom")
-  val COMER = new RegularErVerb("com")
-  val ACOGER = new IrregularFirstPersonSingularErVerb("acog")
-  val VENCER = new IrregularFirstPersonSingularErVerb("venc")
+  val FUMAR = new ArVerb("fum")
+  val TOMAR = new ArVerb("tom")
+  val COMER = new ErVerb("com")
+  val ACOGER = new ErVerb("acog")
+  val VENCER = new ErVerb("venc")
+  val ESCRIBIR = new IrVerb("escrib")
+  val DISTINGUIR = new IrVerb("distingu")
+  val FINGIR = new IrVerb("fing")
 }

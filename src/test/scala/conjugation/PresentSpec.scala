@@ -28,18 +28,37 @@ class PresentSpec extends FunSpec {
 
   describe("Regular -ar verbs") {
     testAllPersons(TOMAR, "tomo", "tomas", "toma", "tomamos", "tomáis", "toman")
+    assert(TOMAR.toInfinitive === "tomar")
   }
 
   describe("Regular -er verbs") {
     testAllPersons(COMER, "como", "comes", "come", "comemos", "coméis", "comen")
+    assert(COMER.toInfinitive === "comer")
   }
 
   describe("acoger g->j in first person singular") {
     testAllPersons(ACOGER, "acojo", "acoges", "acoge", "acogemos", "acogéis", "acogen")
+    assert(ACOGER.toInfinitive === "acoger")
   }
 
   describe("vencer c->z in first person singular") {
     testAllPersons(VENCER, "venzo", "vences", "vence", "vencemos", "vencéis", "vencen")
+    assert(VENCER.toInfinitive === "vencer")
+  }
+
+  describe("Regular -ir verbs") {
+    testAllPersons(ESCRIBIR, "escribo", "escribes", "escribe", "escribimos", "escribís", "escriben")
+    assert(ESCRIBIR.toInfinitive === "escribir")
+  }
+
+  describe("distinguir gu->g in first person singular") {
+    testAllPersons(DISTINGUIR, "distingo", "distingues", "distingue", "distinguimos", "distinguís", "distinguen")
+    assert(DISTINGUIR.toInfinitive === "distinguir")
+  }
+
+  describe("fingir g->j in first person singular") {
+    testAllPersons(FINGIR, "finjo", "finges", "finge", "fingimos", "fingís", "fingen")
+    assert(FINGIR.toInfinitive === "fingir")
   }
 
 }
