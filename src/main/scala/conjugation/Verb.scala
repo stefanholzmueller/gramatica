@@ -2,24 +2,53 @@ package conjugation
 
 trait Verb {
   def toInfinitive: String
-  def toPresent: Persons
+  def toPresent(n: Number, p: Person): String
 }
 
-trait IrregularFirstPersonSingular {
-  def toPresent1S(stem: String): String = stem.replaceFirst("g$", "j").replaceFirst("gu$", "g").replaceFirst("c$", "z") + "o"
+trait RegularVerb extends Verb {
+  def stem: String
+  def suffixPresent(n: Number, p: Person): String
+  def toPresent(n: Number, p: Person) = (if (n == SINGULAR && p == FIRST) stem.replaceFirst("g$", "j").replaceFirst("gu$", "g").replaceFirst("c$", "z") else stem) + suffixPresent(n, p)
 }
 
-class ArVerb(val stem: String) extends Verb with IrregularFirstPersonSingular {
+class ArVerb(val stem: String) extends RegularVerb {
   def toInfinitive = stem + "ar"
-  def toPresent = Persons(toPresent1S(stem), stem + "as", stem + "a", stem + "amos", stem + "áis", stem + "an")
+  def suffixPresent(n: Number, p: Person): String = (n, p) match {
+    case (SINGULAR, FIRST) => "o"
+    case (SINGULAR, SECOND) => "as"
+    case (SINGULAR, THIRD) => "a"
+    case (PLURAL, FIRST) => "amos"
+    case (PLURAL, SECOND) => "áis"
+    case (PLURAL, THIRD) => "an"
+  }
 }
 
-class ErVerb(val stem: String) extends Verb with IrregularFirstPersonSingular {
+class ErVerb(val stem: String) extends RegularVerb {
   def toInfinitive = stem + "er"
-  def toPresent = Persons(toPresent1S(stem), stem + "es", stem + "e", stem + "emos", stem + "éis", stem + "en")
+  def suffixPresent(n: Number, p: Person): String = (n, p) match {
+    case (SINGULAR, FIRST) => "o"
+    case (SINGULAR, SECOND) => "es"
+    case (SINGULAR, THIRD) => "e"
+    case (PLURAL, FIRST) => "emos"
+    case (PLURAL, SECOND) => "éis"
+    case (PLURAL, THIRD) => "en"
+  }
 }
 
-class IrVerb(val stem: String) extends Verb with IrregularFirstPersonSingular {
+class IrVerb(val stem: String) extends RegularVerb {
   def toInfinitive = stem + "ir"
-  def toPresent = Persons(toPresent1S(stem), stem + "es", stem + "e", stem + "imos", stem + "ís", stem + "en")
+  def suffixPresent(n: Number, p: Person): String = (n, p) match {
+    case (SINGULAR, FIRST) => "o"
+    case (SINGULAR, SECOND) => "es"
+    case (SINGULAR, THIRD) => "e"
+    case (PLURAL, FIRST) => "imos"
+    case (PLURAL, SECOND) => "ís"
+    case (PLURAL, THIRD) => "en"
+  }
 }
+/*
+class Diphthongized(val verb: RegularVerb, val diphthongizedStem: String) extends Verb {
+  def toInfinitive = verb.toInfinitive
+  def toPresent =
+}
+*/
