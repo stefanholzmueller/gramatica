@@ -46,9 +46,15 @@ class IrVerb(val stem: String) extends RegularVerb {
     case (PLURAL, THIRD) => "en"
   }
 }
-/*
+
 class Diphthongized(val verb: RegularVerb, val diphthongizedStem: String) extends Verb {
   def toInfinitive = verb.toInfinitive
-  def toPresent =
+  def toPresent(n: Number, p: Person): String = (n, p) match {
+    case (SINGULAR, FIRST) => diphthongizedStem + verb.suffixPresent(n, p)
+    case (SINGULAR, SECOND) => diphthongizedStem + verb.suffixPresent(n, p)
+    case (SINGULAR, THIRD) => diphthongizedStem + verb.suffixPresent(n, p)
+    case (PLURAL, FIRST) => verb.stem + verb.suffixPresent(n, p)
+    case (PLURAL, SECOND) => verb.stem + verb.suffixPresent(n, p)
+    case (PLURAL, THIRD) => diphthongizedStem + verb.suffixPresent(n, p)
+  }
 }
-*/

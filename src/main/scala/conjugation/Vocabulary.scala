@@ -9,5 +9,5 @@ object Vocabulary {
   val ESCRIBIR = new IrVerb("escrib")
   val DISTINGUIR = new IrVerb("distingu")
   val FINGIR = new IrVerb("fing")
- // val CERRAR = new Diphthongized(new IrVerb("cerr"), "cierr")
+  val CERRAR = new Diphthongized(new ArVerb("cerr"), "cierr")
 }

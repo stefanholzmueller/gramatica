@@ -70,4 +70,9 @@ class PresentSpec extends FunSpec {
     assert(FINGIR.toInfinitive === "fingir")
   }
 
+  describe("cerrar diphtongized") {
+    testAllPersons(CERRAR, "cierro", "cierras", "cierra", "cerramos", "cerráis", "cierran")
+    assert(CERRAR.toInfinitive === "cerrar")
+  }
+
 }
