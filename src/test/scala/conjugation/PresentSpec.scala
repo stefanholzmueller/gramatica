@@ -84,4 +84,29 @@ class PresentSpec extends FunSpec {
     testAllPersons(PREFERIR, "prefiero", "prefieres", "prefiere", "preferimos", "preferís", "prefieren")
     assert(PREFERIR.toInfinitive === "preferir")
   }
+
+  describe("adquirir diphtongized") {
+    testAllPersons(ADQUIRIR, "adquiero", "adquieres", "adquiere", "adquirimos", "adquirís", "adquieren")
+    assert(ADQUIRIR.toInfinitive === "adquirir")
+  }
+
+  describe("contar diphtongized") {
+    testAllPersons(CONTAR, "cuento", "cuentas", "cuenta", "contamos", "contáis", "cuentan")
+    assert(CONTAR.toInfinitive === "contar")
+  }
+
+  describe("poder diphtongized") {
+    testAllPersons(PODER, "puedo", "puedes", "puede", "podemos", "podéis", "pueden")
+    assert(PODER.toInfinitive === "poder")
+  }
+
+  describe("dormir diphtongized") {
+    testAllPersons(DORMIR, "duermo", "duermes", "duerme", "dormimos", "dormís", "duermen")
+    assert(DORMIR.toInfinitive === "dormir")
+  }
+
+  describe("jugar diphtongized") {
+    testAllPersons(JUGAR, "juego", "juegas", "juega", "jugamos", "jugáis", "juegan")
+    assert(JUGAR.toInfinitive === "jugar")
+  }
 }

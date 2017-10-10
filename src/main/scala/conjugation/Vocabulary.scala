@@ -12,4 +12,9 @@ object Vocabulary {
   val CERRAR = new Diphthongized(new ArVerb("cerr"), "cierr")
   val QUERER = new Diphthongized(new ErVerb("quer"), "quier")
   val PREFERIR = new Diphthongized(new IrVerb("prefer"), "prefier")
+  val ADQUIRIR = new Diphthongized(new IrVerb("adquir"), "adquier")
+  val CONTAR = new Diphthongized(new ArVerb("cont"), "cuent")
+  val PODER = new Diphthongized(new ErVerb("pod"), "pued")
+  val DORMIR = new Diphthongized(new IrVerb("dorm"), "duerm")
+  val JUGAR = new Diphthongized(new ArVerb("jug"), "jueg")
 }
