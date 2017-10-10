@@ -75,4 +75,13 @@ class PresentSpec extends FunSpec {
     assert(CERRAR.toInfinitive === "cerrar")
   }
 
+  describe("querer diphtongized") {
+    testAllPersons(QUERER, "quiero", "quieres", "quiere", "queremos", "queréis", "quieren")
+    assert(QUERER.toInfinitive === "querer")
+  }
+
+  describe("preferir diphtongized") {
+    testAllPersons(PREFERIR, "prefiero", "prefieres", "prefiere", "preferimos", "preferís", "prefieren")
+    assert(PREFERIR.toInfinitive === "preferir")
+  }
 }
