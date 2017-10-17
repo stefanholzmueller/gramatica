@@ -135,4 +135,14 @@ class PresentSpec extends FunSpec {
     assert(CONTINUAR.toInfinitive === "continuar")
   }
 
+  describe("ser is irregular") {
+    testAllPersons(SER, "soy", "eres", "es", "somos", "sois", "son")
+    assert(SER.toInfinitive === "ser")
+  }
+
+  describe("estar is irregular") {
+    testAllPersons(ESTAR, "estoy", "estás", "está", "estamos", "estáis", "están")
+    assert(ESTAR.toInfinitive === "estar")
+  }
+
 }

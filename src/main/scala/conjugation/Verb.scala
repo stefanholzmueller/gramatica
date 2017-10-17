@@ -60,3 +60,15 @@ class StressedIrregularStem(val verb: RegularVerb, val irregularStem: String) ex
 }
 class Diphthongized(override val verb: RegularVerb, val diphthongizedStem: String) extends StressedIrregularStem(verb, diphthongizedStem) {}
 class StressedIrregularArVerb(val regularStem: String, override val irregularStem: String) extends StressedIrregularStem(new ArVerb(regularStem), irregularStem) {}
+
+class IrregularVerb(val infinitive: String, val present: Persons) extends Verb {
+  def toInfinitive = infinitive
+  def toPresent(n: Number, p: Person) = (n, p) match {
+    case (SINGULAR, FIRST) => present.s1
+    case (SINGULAR, SECOND) => present.s2
+    case (SINGULAR, THIRD) => present.s3
+    case (PLURAL, FIRST) => present.p1
+    case (PLURAL, SECOND) => present.p2
+    case (PLURAL, THIRD) => present.p3
+  }
+}

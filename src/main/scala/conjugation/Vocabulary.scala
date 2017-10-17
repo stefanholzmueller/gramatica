@@ -22,4 +22,6 @@ object Vocabulary {
   val EVACUAR = new ArVerb("evacu")
   val ENVIAR = new StressedIrregularArVerb("envi", "enví")
   val CONTINUAR = new StressedIrregularArVerb("continu", "continú")
+  val SER = new IrregularVerb("ser", Persons("soy", "eres", "es", "somos", "sois", "son"))
+  val ESTAR = new IrregularVerb("estar", Persons("estoy", "estás", "está", "estamos", "estáis", "están"))
 }
