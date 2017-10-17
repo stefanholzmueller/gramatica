@@ -47,14 +47,16 @@ class IrVerb(val stem: String) extends RegularVerb {
   }
 }
 
-class Diphthongized(val verb: RegularVerb, val diphthongizedStem: String) extends Verb {
+class StressedIrregularStem(val verb: RegularVerb, val irregularStem: String) extends Verb {
   def toInfinitive = verb.toInfinitive
   def toPresent(n: Number, p: Person): String = (n, p) match {
-    case (SINGULAR, FIRST) => diphthongizedStem + verb.suffixPresent(n, p)
-    case (SINGULAR, SECOND) => diphthongizedStem + verb.suffixPresent(n, p)
-    case (SINGULAR, THIRD) => diphthongizedStem + verb.suffixPresent(n, p)
+    case (SINGULAR, FIRST) => irregularStem + verb.suffixPresent(n, p)
+    case (SINGULAR, SECOND) => irregularStem + verb.suffixPresent(n, p)
+    case (SINGULAR, THIRD) => irregularStem + verb.suffixPresent(n, p)
     case (PLURAL, FIRST) => verb.stem + verb.suffixPresent(n, p)
     case (PLURAL, SECOND) => verb.stem + verb.suffixPresent(n, p)
-    case (PLURAL, THIRD) => diphthongizedStem + verb.suffixPresent(n, p)
+    case (PLURAL, THIRD) => irregularStem + verb.suffixPresent(n, p)
   }
 }
+class Diphthongized(override val verb: RegularVerb, val diphthongizedStem: String) extends StressedIrregularStem(verb, diphthongizedStem) {}
+class StressedIrregularArVerb(val regularStem: String, override val irregularStem: String) extends StressedIrregularStem(new ArVerb(regularStem), irregularStem) {}

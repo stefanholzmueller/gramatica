@@ -109,4 +109,30 @@ class PresentSpec extends FunSpec {
     testAllPersons(JUGAR, "juego", "juegas", "juega", "jugamos", "jugáis", "juegan")
     assert(JUGAR.toInfinitive === "jugar")
   }
+
+  describe("servir diphtongized") {
+    testAllPersons(SERVIR, "sirvo", "sirves", "sirve", "servimos", "servís", "sirven")
+    assert(SERVIR.toInfinitive === "servir")
+  }
+
+  describe("cambiar is regular") {
+    testAllPersons(CAMBIAR, "cambio", "cambias", "cambia", "cambiamos", "cambiáis", "cambian")
+    assert(CAMBIAR.toInfinitive === "cambiar")
+  }
+
+  describe("evacuar is regular") {
+    testAllPersons(EVACUAR, "evacuo", "evacuas", "evacua", "evacuamos", "evacuáis", "evacuan")
+    assert(EVACUAR.toInfinitive === "evacuar")
+  }
+
+  describe("enviar has irregular stressed stem") {
+    testAllPersons(ENVIAR, "envío", "envías", "envía", "enviamos", "enviáis", "envían")
+    assert(ENVIAR.toInfinitive === "enviar")
+  }
+
+  describe("continuar has irregular stressed stem") {
+    testAllPersons(CONTINUAR, "continúo", "continúas", "continúa", "continuamos", "continuáis", "continúan")
+    assert(CONTINUAR.toInfinitive === "continuar")
+  }
+
 }

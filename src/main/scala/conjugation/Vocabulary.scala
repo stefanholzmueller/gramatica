@@ -17,4 +17,9 @@ object Vocabulary {
   val PODER = new Diphthongized(new ErVerb("pod"), "pued")
   val DORMIR = new Diphthongized(new IrVerb("dorm"), "duerm")
   val JUGAR = new Diphthongized(new ArVerb("jug"), "jueg")
+  val SERVIR = new Diphthongized(new IrVerb("serv"), "sirv")
+  val CAMBIAR = new ArVerb("cambi")
+  val EVACUAR = new ArVerb("evacu")
+  val ENVIAR = new StressedIrregularArVerb("envi", "enví")
+  val CONTINUAR = new StressedIrregularArVerb("continu", "continú")
 }
