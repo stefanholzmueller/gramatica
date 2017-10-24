@@ -24,4 +24,7 @@ object Vocabulary {
   val CONTINUAR = new StressedIrregularArVerb("continu", "continú")
   val SER = new IrregularVerb("ser", Persons("soy", "eres", "es", "somos", "sois", "son"))
   val ESTAR = new IrregularVerb("estar", Persons("estoy", "estás", "está", "estamos", "estáis", "están"))
+  val IR = new IrregularVerb("ir", Persons("voy", "vas", "va", "vamos", "vais", "van"))
+  val DAR = new IrregularVerb("ir", Persons("voy", "vas", "va", "vamos", "vais", "van"))
+  // more irregular verbs in chapter 26
 }
