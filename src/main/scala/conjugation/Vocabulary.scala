@@ -26,5 +26,6 @@ object Vocabulary {
   val ESTAR = new IrregularVerb("estar", Persons("estoy", "estás", "está", "estamos", "estáis", "están"))
   val IR = new IrregularVerb("ir", Persons("voy", "vas", "va", "vamos", "vais", "van"))
   val DAR = new IrregularVerb("ir", Persons("voy", "vas", "va", "vamos", "vais", "van"))
-  // more irregular verbs in chapter 26
+  // more irregular verbs in chapter 26 and 27
+  val HABLAR = new ArVerb("habl")
 }

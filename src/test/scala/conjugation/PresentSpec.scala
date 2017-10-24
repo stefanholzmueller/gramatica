@@ -3,37 +3,9 @@ package conjugation
 import conjugation.Vocabulary._
 import org.scalatest._
 
-class PresentSpec extends FunSpec {
+class PresentSpec extends ConjugationSpec {
 
-  def toPersons(verb: Verb) = Persons(
-    verb.toPresent(SINGULAR, FIRST),
-    verb.toPresent(SINGULAR, SECOND),
-    verb.toPresent(SINGULAR, THIRD),
-    verb.toPresent(PLURAL, FIRST),
-    verb.toPresent(PLURAL, SECOND),
-    verb.toPresent(PLURAL, THIRD)
-  )
-
-  def testAllPersons(verb: Verb, s1: String, s2: String, s3: String, p1: String, p2: String, p3: String) {
-    it("in first person singular") {
-      assert(toPersons(verb).s1 === s1)
-    }
-    it("in second person singular") {
-      assert(toPersons(verb).s2 === s2)
-    }
-    it("in third person singular") {
-      assert(toPersons(verb).s3 === s3)
-    }
-    it("in first person plural") {
-      assert(toPersons(verb).p1 === p1)
-    }
-    it("in second person plural") {
-      assert(toPersons(verb).p2 === p2)
-    }
-    it("in third person plural") {
-      assert(toPersons(verb).p3 === p3)
-    }
-  }
+  def testAllPersons = testAllPersonsForTense(Present) _
 
   describe("Regular -ar verbs") {
     testAllPersons(TOMAR, "tomo", "tomas", "toma", "tomamos", "tomáis", "toman")
